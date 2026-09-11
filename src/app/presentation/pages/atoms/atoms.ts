@@ -8,6 +8,8 @@ import {
   ButtonType,
   ContainerAtom,
   IconAtom,
+  ProgressAtom,
+  ProgressType,
 } from '@brejcha13320/design-system-bootstrap';
 
 @Component({
@@ -17,6 +19,7 @@ import {
     ButtonAtom,
     IconAtom,
     ContainerAtom,
+    ProgressAtom,
     CommonModule,
   ],
 })
@@ -49,6 +52,14 @@ export class Atoms {
     { name: 'bell', size: 3 },
     { name: 'android', size: 4 },
     { name: 'ban', size: 5 },
+  ]
+
+  progresses: { type: ProgressType, value: number }[] = [
+    { type: 'light', value: 0 },
+    { type: 'success', value: 25 },
+    { type: 'info', value: 50 },
+    { type: 'warning', value: 75 },
+    { type: 'danger', value: 100 },
   ]
 
   onClick(idButton: string){

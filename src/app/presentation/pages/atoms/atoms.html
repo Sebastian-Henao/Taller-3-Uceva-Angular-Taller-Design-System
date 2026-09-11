@@ -28,14 +28,12 @@
 </dsb-container-atom>
 
 <dsb-container-atom title="Progress" >
-    <section class="d-flex gap-2" >
-        @for(button of buttons; track button){
-            <dsb-button-atom 
-                [idButton]="button.idButton" 
-                [text]="button.type | titlecase" 
-                [type]="button.type" 
-                (clicker)="onClick($event)" >
-            </dsb-button-atom>
+    <section class="d-flex gap-2 flex-column" >
+        @for(progress of progresses; track progress){
+            <dsb-progress-atom 
+            [type]="progress.type"
+            [value]="progress.value">
+            </dsb-progress-atom>
         }
     </section>
 </dsb-container-atom>
