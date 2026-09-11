@@ -1,9 +1,18 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-progress.atom',
+  selector: 'dsb-progress-atom',
   imports: [],
-  templateUrl: './progress.atom.html',
+  template: `
+  <div class="progress" role="progressbar"
+     [attr.aria-label]="type + ' example'"
+     [attr.aria-valuenow]="value"
+     aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar" [ngClass]="'bg-' + type" [style.width.%]="value">
+      {{ value }}%
+    </div>
+  </div>
+  `,
   styleUrl: './progress.atom.css',
 })
 export class ProgressAtom {
