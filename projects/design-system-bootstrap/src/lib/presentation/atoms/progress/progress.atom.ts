@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ProgressType } from '../../../../public-api';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'dsb-progress-atom',
-  imports: [],
+  imports: [NgClass],
   template: `
   <div class="progress" role="progressbar"
      [attr.aria-label]="type + ' example'"
@@ -16,5 +18,6 @@ import { Component } from '@angular/core';
   styleUrl: './progress.atom.css',
 })
 export class ProgressAtom {
-
+  @Input() type: ProgressType = 'light';
+  @Input() value: number = 0;
 }
