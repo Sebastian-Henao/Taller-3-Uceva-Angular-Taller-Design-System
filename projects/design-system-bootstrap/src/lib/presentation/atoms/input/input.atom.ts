@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-input.atom',
+  selector: 'dsb-input-atom',
   imports: [],
-  templateUrl: './input.atom.html',
+  template: `
+  <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example">
+  `,
   styleUrl: './input.atom.css',
 })
 export class InputAtom {
