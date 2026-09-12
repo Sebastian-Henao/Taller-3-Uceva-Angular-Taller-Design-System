@@ -8,6 +8,9 @@ import {
   ButtonType,
   ContainerAtom,
   IconAtom,
+  InputAtom,
+  InputTamano,
+  InputType,
   ProgressAtom,
   ProgressType,
 } from '@brejcha13320/design-system-bootstrap';
@@ -20,6 +23,7 @@ import {
     IconAtom,
     ContainerAtom,
     ProgressAtom,
+    InputAtom,
     CommonModule,
   ],
 })
@@ -62,6 +66,12 @@ export class Atoms {
     { type: 'danger', value: 100 },
   ]
 
+  inputs: { tamano: InputTamano, type: InputType, placeholder: string }[]= [
+    { tamano: 'form-control-sm', type: 'text', placeholder: 'Input pequeño (para texto)' },
+    { tamano: 'form-control', type: 'email', placeholder: "Input por defecto (para correo)" },
+    { tamano: 'form-control-lg', type: 'password', placeholder: 'Input grande (Para passwords)' }
+  ]
+  
   onClick(idButton: string){
     alert(`Click en el Boton ${idButton}`);
   }

@@ -22,6 +22,9 @@ export type ButtonType = Themes;
 
 export type ProgressType = Themes;
 
+export type InputTamano = 'form-control-sm' | 'form-control' | 'form-control-lg';
+export type InputType = 'text' | 'email' | 'password' | 'number' | 'search';
+
 /**
  * Configuración de un botón dentro de un grupo de botones.
  */

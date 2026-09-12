@@ -40,11 +40,12 @@
 
 <dsb-container-atom title="Input" >
     <section class="d-flex gap-2 flex-column" >
-        @for(progress of progresses; track progress){
-            <dsb-progress-atom 
-            [type]="progress.type"
-            [value]="progress.value">
-            </dsb-progress-atom>
+        @for(input of inputs; track input){
+            <dsb-input-atom 
+            [tamano]="input.tamano"
+            [type]="input.type"
+            [placeholder]="input.placeholder">
+            </dsb-input-atom>
         }
     </section>
 </dsb-container-atom>
