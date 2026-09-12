@@ -33,7 +33,9 @@ export class Molecules {
     { text: 'Link 3', url: '/organisms' },
   ];
 
-  onClick(idButton: string){
-    alert(`Click en el Boton de Grupo ${idButton}`);
+  selectedButtonId: string | null = null;
+
+  onClick(idButton: string): void {
+    this.selectedButtonId = idButton;
   }
 }
