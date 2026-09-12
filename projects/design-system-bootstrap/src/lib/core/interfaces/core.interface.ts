@@ -20,6 +20,15 @@ export type BadgeTypeText = 'text-white' | 'text-dark';
 /** Tipo de tema para botones */
 export type ButtonType = Themes;
 
+/**Tipo de tema para barras de progreso */
+export type ProgressType = Themes;
+
+/** Tipo de tamaño para los inputs */
+export type InputTamano = 'form-control-sm' | 'form-control' | 'form-control-lg';
+
+/** Tipo de input segun necesidad */
+export type InputType = 'text' | 'email' | 'password' | 'number' | 'search';
+
 /**
  * Configuración de un botón dentro de un grupo de botones.
  */

@@ -10,6 +10,8 @@ export { IconAtom } from './lib/presentation/atoms/icon/icon.atom';
 export { BadgeAtom } from './lib/presentation/atoms/badge/badge.atom';
 export { ButtonAtom } from './lib/presentation/atoms/button/button.atom';
 export { ContainerAtom } from './lib/presentation/atoms/container/container-atom';
+export { ProgressAtom } from './lib/presentation/atoms/progress/progress.atom';
+export { InputAtom } from './lib/presentation/atoms/input/input.atom'
 
 //Molecules
 export { NavLinkMolecule } from './lib/presentation/molecules/nav-link/nav-link.molecule';
