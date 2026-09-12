@@ -9,7 +9,8 @@ import { ButtonAtom } from '../../atoms/button/button.atom';
  * @description
  * Componente tipo **Molécula** según Atomic Design.
  * Renderiza un conjunto de botones atómicos (`ButtonAtom`)
- * y centraliza la emisión de eventos de interacción.
+ * en una cuadrícula de acciones, centraliza la emisión de eventos
+ * y conserva el estado del botón seleccionado.
  */
 @Component({
   selector: 'dsb-button-group-molecule',
@@ -38,7 +39,15 @@ export class ButtonGroupMolecule {
    */
   @Input() ariaLabel = 'Grupo de botones';
 
-  /** Identificador del último botón seleccionado. */
+  /**
+   * Identificador del último botón seleccionado.
+   *
+   * Se actualiza después de cada interacción y permite mostrar un estado
+   * visual activo sin trasladar esa responsabilidad al componente padre.
+   *
+   * @type {string | null}
+   * @default null
+   */
   selectedButtonId: string | null = null;
 
   /**
@@ -69,7 +78,12 @@ export class ButtonGroupMolecule {
     this.clicker.emit(idButton);
   }
 
-  /** Indica si un botón corresponde a la selección actual. */
+  /**
+   * Indica si un botón corresponde a la selección actual.
+   *
+   * @param {string} idButton Identificador del botón que se desea comprobar
+   * @returns {boolean} `true` cuando el botón está seleccionado
+   */
   isSelected(idButton: string): boolean {
     return this.selectedButtonId === idButton;
   }
