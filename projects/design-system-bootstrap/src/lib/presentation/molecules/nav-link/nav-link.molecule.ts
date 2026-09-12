@@ -36,6 +36,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'dsb-nav-link-molecule',
   templateUrl: './nav-link.molecule.html',
+  styleUrl: './nav-link.molecule.scss',
   imports: [RouterLink, RouterLinkActive]
 })
 export class NavLinkMolecule {

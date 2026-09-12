@@ -1,7 +1,10 @@
-<ul class="nav nav-pills" [attr.aria-label]="ariaLabel">
+<ul class="molecule-tabs" [attr.aria-label]="ariaLabel">
     @for(navLink of navLinks; track navLink){
-        <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" [routerLink]="navLink.url" >{{ navLink.text }}</a>
+        <li class="tab-item">
+            <a class="tab-link" routerLinkActive="tab-link--active" [routerLink]="navLink.url">
+                <span class="tab-link__index">{{ $index + 1 }}</span>
+                <span>{{ navLink.text }}</span>
+            </a>
         </li>
     }
 </ul>

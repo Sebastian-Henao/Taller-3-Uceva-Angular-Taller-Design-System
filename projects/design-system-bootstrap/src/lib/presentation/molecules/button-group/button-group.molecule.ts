@@ -14,6 +14,7 @@ import { ButtonAtom } from '../../atoms/button/button.atom';
 @Component({
   selector: 'dsb-button-group-molecule',
   templateUrl: './button-group.molecule.html',
+  styleUrl: './button-group.molecule.scss',
   imports: [CommonModule, ButtonAtom],
 })
 export class ButtonGroupMolecule {
@@ -36,6 +37,9 @@ export class ButtonGroupMolecule {
    * @default 'Grupo de botones'
    */
   @Input() ariaLabel = 'Grupo de botones';
+
+  /** Identificador del último botón seleccionado. */
+  selectedButtonId: string | null = null;
 
   /**
    * Evento emitido al hacer click en alguno de los botones del grupo.
@@ -61,6 +65,12 @@ export class ButtonGroupMolecule {
    * @returns {void}
    */
   onEmit(idButton: string): void {
+    this.selectedButtonId = idButton;
     this.clicker.emit(idButton);
+  }
+
+  /** Indica si un botón corresponde a la selección actual. */
+  isSelected(idButton: string): boolean {
+    return this.selectedButtonId === idButton;
   }
 }

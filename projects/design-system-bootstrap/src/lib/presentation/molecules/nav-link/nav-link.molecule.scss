@@ -1,0 +1,61 @@
+:host {
+  display: block;
+}
+
+.molecule-tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.35rem;
+  overflow-x: auto;
+  list-style: none;
+  border-bottom: 1px solid #d9e2ec;
+  background: #f7f9fc;
+}
+
+.tab-item {
+  flex: 0 0 auto;
+}
+
+.tab-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0.85rem;
+  color: #52616b;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 0.65rem 0.65rem 0 0;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.tab-link:hover,
+.tab-link--active {
+  color: #0f766e;
+  background: #dff7f1;
+}
+
+.tab-link--active::after {
+  position: absolute;
+  right: 0.7rem;
+  bottom: -0.35rem;
+  left: 0.7rem;
+  height: 3px;
+  content: '';
+  background: #0f766e;
+  border-radius: 999px;
+}
+
+.tab-link__index {
+  display: grid;
+  width: 1.5rem;
+  height: 1.5rem;
+  place-items: center;
+  color: #0f766e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: #ffffff;
+  border: 1px solid #b8e4d8;
+  border-radius: 50%;
+}

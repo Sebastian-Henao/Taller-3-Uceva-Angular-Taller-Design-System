@@ -23,7 +23,7 @@ describe('ButtonGroupMolecule', () => {
   });
 
   it('deberia usar una etiqueta accesible configurable para el grupo', () => {
-    const buttonsGroup = fixture.debugElement.query(By.css('.btn-group'));
+    const buttonsGroup = fixture.debugElement.query(By.css('.molecule-actions'));
     expect(buttonsGroup.attributes['aria-label']).toBe('Grupo de botones');
 
     component.ariaLabel = 'Acciones del formulario';
@@ -35,7 +35,7 @@ describe('ButtonGroupMolecule', () => {
   it('Deberia agregar el numero de Buttons solicitados', () => {
     component.buttonsGroupData = MOCK_BUTTONS_GROUP_DATA;
     fixture.detectChanges();
-    const buttonsGroup = fixture.debugElement.query(By.css('.btn-group'));
+    const buttonsGroup = fixture.debugElement.query(By.css('.molecule-actions'));
     expect(buttonsGroup.children.length).toBe(MOCK_BUTTONS_GROUP_DATA.length);
   });
 
@@ -43,11 +43,11 @@ describe('ButtonGroupMolecule', () => {
     component.buttonsGroupData = MOCK_BUTTONS_GROUP_DATA;
     fixture.detectChanges();
     
-    const buttonsGroup = fixture.debugElement.query(By.css('.btn-group'));
+    const buttonsGroup = fixture.debugElement.query(By.css('.molecule-actions'));
     component.buttonsGroupData.forEach(({ idButton, type, text }) => {
       const button = buttonsGroup.query(By.css(`#${idButton}`));
       expect(button.attributes['id']).toEqual(idButton);
-      expect(button.nativeElement.textContent).toEqual(text);
+      expect(button.nativeElement.textContent.trim()).toEqual(text);
       expect(button.nativeElement.className).toContain(`btn-${type}`)
     });
   });
@@ -57,12 +57,24 @@ describe('ButtonGroupMolecule', () => {
     const spy = jest.spyOn(component.clicker, 'emit');
     fixture.detectChanges();
     
-    const buttonsGroup = fixture.debugElement.query(By.css('.btn-group'));
+    const buttonsGroup = fixture.debugElement.query(By.css('.molecule-actions'));
     component.buttonsGroupData.forEach(({ idButton }) => {
       const button = buttonsGroup.query(By.css(`#${idButton}`));
       button.nativeElement.click();
       expect(spy).toHaveBeenCalledWith(idButton);
     });
+  });
+
+  it('deberia marcar visualmente el ultimo boton seleccionado', () => {
+    component.buttonsGroupData = MOCK_BUTTONS_GROUP_DATA;
+    fixture.detectChanges();
+
+    const button = fixture.debugElement.query(By.css('#idButtonSuccess'));
+    button.nativeElement.click();
+    fixture.detectChanges();
+
+    const selectedItem = fixture.debugElement.query(By.css('.action-item--active'));
+    expect(selectedItem.nativeElement.querySelector('#idButtonSuccess')).toBeTruthy();
   });
 
 });
