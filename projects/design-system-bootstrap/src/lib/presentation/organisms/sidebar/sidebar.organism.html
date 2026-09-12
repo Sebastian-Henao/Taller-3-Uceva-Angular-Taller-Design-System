@@ -1,0 +1,29 @@
+<aside class="dsb-sidebar" [class.dsb-sidebar--open]="isOpen" [class.dsb-sidebar--closed]="!isOpen">
+
+  <!-- Encabezado del Sidebar -->
+  <div class="dsb-sidebar__header">
+    <span class="dsb-sidebar__title">{{ title }}</span>
+    <button class="dsb-sidebar__toggle btn btn-sm btn-outline-secondary" (click)="toggle()" aria-label="Alternar menú">
+      <i class="bi" [class.bi-layout-sidebar-inset]="isOpen" [class.bi-layout-sidebar-inset-reverse]="!isOpen"></i>
+    </button>
+  </div>
+
+  <!-- Navegación principal -->
+  <nav class="dsb-sidebar__nav" aria-label="Navegación principal del Sidebar">
+    <dsb-nav-link-molecule
+      [navLinks]="navLinks"
+      ariaLabel="Navegación del Sidebar">
+    </dsb-nav-link-molecule>
+  </nav>
+
+  <!-- Acciones al pie -->
+  <div class="dsb-sidebar__actions" *ngIf="actionButtons.length > 0">
+    <hr class="dsb-sidebar__divider">
+    <dsb-button-group-molecule
+      [buttonsGroupData]="actionButtons"
+      ariaLabel="Acciones del Sidebar"
+      (clicker)="onActionClick($event)">
+    </dsb-button-group-molecule>
+  </div>
+
+</aside>
