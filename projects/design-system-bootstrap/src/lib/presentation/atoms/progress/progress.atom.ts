@@ -2,6 +2,13 @@ import { Component, Input } from '@angular/core';
 import { ProgressType } from '../../../../public-api';
 import { NgClass } from '@angular/common';
 
+/**
+ * Indicador de progreso atómico del Design System.
+ *
+ * @description
+ * Representa una barra de progreso reutilizable basada en Bootstrap.
+ * Muestra el porcentaje actual y aplica el color visual indicado.
+ */
 @Component({
   selector: 'dsb-progress-atom',
   imports: [NgClass],
@@ -15,9 +22,11 @@ import { NgClass } from '@angular/common';
     </div>
   </div>
   `,
-  styleUrl: './progress.atom.css',
 })
 export class ProgressAtom {
+  /** Tipo visual de la barra de progreso. */
   @Input() type: ProgressType = 'light';
+
+  /** Porcentaje de progreso mostrado, entre 0 y 100. */
   @Input() value: number = 0;
 }
