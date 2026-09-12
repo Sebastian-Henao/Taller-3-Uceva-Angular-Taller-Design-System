@@ -1,3 +1,39 @@
-<dsb-container-atom title="Navbar" >
-    <dsb-navbar-organism [navbarConfig]="navbarConfig"></dsb-navbar-organism>
+<!-- Navbar Organism -->
+<dsb-container-atom title="Navbar">
+  <dsb-navbar-organism [navbarConfig]="navbarConfig"></dsb-navbar-organism>
+</dsb-container-atom>
+
+<!-- Sidebar Organism -->
+<dsb-container-atom title="Sidebar">
+  <div class="d-flex gap-4 align-items-flex-start" style="height: 450px;">
+
+    <!-- Sidebar demo -->
+    <dsb-sidebar-organism
+      [title]="sidebarTitle"
+      [navLinks]="sidebarLinks"
+      [actionButtons]="sidebarActions"
+      (actionClick)="onSidebarAction($event)">
+    </dsb-sidebar-organism>
+
+    <!-- Descripción + último evento emitido -->
+    <div class="flex-grow-1 p-3">
+      <h5 class="mb-3 fw-bold">SidebarOrganism</h5>
+      <p class="text-muted small">
+        Organismo que combina la molécula <code>NavLinkMolecule</code> (navegación principal)
+        con <code>ButtonGroupMolecule</code> (acciones rápidas al pie).
+        Soporta colapso/expansión mediante el botón de alternado.
+      </p>
+      <div class="mt-3 p-2 bg-light rounded border small font-monospace" *ngIf="lastAction">
+        <strong>Último evento <code>(actionClick)</code>:</strong> "{{ lastAction }}"
+      </div>
+      <ul class="list-group list-group-flush mt-3 small">
+        <li class="list-group-item"><code>&#64;Input() title</code> — Título del sidebar</li>
+        <li class="list-group-item"><code>&#64;Input() navLinks</code> — Lista de rutas (NavLink[])</li>
+        <li class="list-group-item"><code>&#64;Input() actionButtons</code> — Botones de acción</li>
+        <li class="list-group-item"><code>&#64;Input() isOpen</code> — Estado expandido/colapsado</li>
+        <li class="list-group-item"><code>&#64;Output() actionClick</code> — Emite el ID del botón pulsado</li>
+      </ul>
+    </div>
+
+  </div>
 </dsb-container-atom>

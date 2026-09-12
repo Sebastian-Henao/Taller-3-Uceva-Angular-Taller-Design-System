@@ -7,6 +7,13 @@ import {
   NavLinkMolecule 
 } from '@brejcha13320/design-system-bootstrap';
 
+/**
+ * Showcase de las moléculas del sistema de diseño.
+ *
+ * Presenta un grupo de acciones compuesto por `ButtonAtom` y una navegación
+ * compuesta por enlaces tipados. La página permite verificar la configuración
+ * y la interacción de ambas moléculas desde la ruta `/molecules`.
+ */
 @Component({
   templateUrl: './molecules.html',
   imports: [
@@ -16,6 +23,7 @@ import {
   ],
 })
 export class Molecules {
+  /** Configuraciones tipadas que alimentan el grupo de acciones. */
   buttonsGroupData: ButtonGroupData[] = [
     { idButton: 'idButtonPrimary', type: 'primary', text: 'Text Primary' },
     { idButton: 'idButtonSecondary', type: 'secondary', text: 'Text Secondary' },
@@ -27,13 +35,18 @@ export class Molecules {
     { idButton: 'idButtonDark', type: 'dark', text: 'Text Dark' },
   ];
 
+  /** Enlaces que alimentan la navegación de tabs del Showcase. */
   navLinks: NavLink[] = [
     { text: 'Link 1', url: '/atoms' },
     { text: 'Link 2', url: '/molecules' },
     { text: 'Link 3', url: '/organisms' },
   ];
 
-  onClick(idButton: string){
-    alert(`Click en el Boton de Grupo ${idButton}`);
+  /** Identificador de la última acción seleccionada por el usuario. */
+  selectedButtonId: string | null = null;
+
+  /** Actualiza la evidencia visible de la interacción con el grupo de botones. */
+  onClick(idButton: string): void {
+    this.selectedButtonId = idButton;
   }
 }

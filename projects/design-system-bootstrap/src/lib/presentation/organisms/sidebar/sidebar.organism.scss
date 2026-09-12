@@ -1,0 +1,100 @@
+// ============================================================
+// SidebarOrganism — Estilos
+// ============================================================
+
+$sidebar-width-open: 260px;
+$sidebar-width-closed: 64px;
+$sidebar-bg: #1e293b;
+$sidebar-text: #e2e8f0;
+$sidebar-accent: #6366f1;
+$sidebar-divider: rgba(255, 255, 255, 0.1);
+$transition-speed: 0.3s;
+
+.dsb-sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 400px;
+  width: $sidebar-width-open;
+  background-color: $sidebar-bg;
+  color: $sidebar-text;
+  border-radius: 12px;
+  padding: 1.25rem 0.75rem;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.35);
+  transition: width $transition-speed ease, padding $transition-speed ease;
+  overflow: hidden;
+
+  // Estado colapsado
+  &--closed {
+    width: $sidebar-width-closed;
+    padding: 1.25rem 0.5rem;
+
+    .dsb-sidebar__title,
+    .dsb-sidebar__nav,
+    .dsb-sidebar__actions {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity $transition-speed ease;
+    }
+  }
+
+  // Estado expandido
+  &--open {
+    .dsb-sidebar__title,
+    .dsb-sidebar__nav,
+    .dsb-sidebar__actions {
+      opacity: 1;
+      pointer-events: all;
+      transition: opacity $transition-speed ease 0.1s;
+    }
+  }
+
+  // ── Encabezado ──────────────────────────────────────────
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid $sidebar-divider;
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: $sidebar-text;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__toggle {
+    flex-shrink: 0;
+    color: $sidebar-text;
+    border-color: $sidebar-divider;
+    background: transparent;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  // ── Navegación ──────────────────────────────────────────
+  &__nav {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  // ── Acciones ────────────────────────────────────────────
+  &__divider {
+    border-color: $sidebar-divider;
+    margin: 0.75rem 0;
+  }
+
+  &__actions {
+    margin-top: auto;
+  }
+}

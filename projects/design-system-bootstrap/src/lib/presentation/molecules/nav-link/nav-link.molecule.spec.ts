@@ -28,6 +28,16 @@ describe('NavLinkMolecule', () => {
     expect(component.navLinks).toEqual([]);
   });
 
+  it('debe usar una etiqueta accesible configurable para la navegación', () => {
+    const navigation = fixture.debugElement.query(By.css('ul'));
+    expect(navigation.attributes['aria-label']).toBe('Navegación principal');
+
+    component.ariaLabel = 'Navegación del Showcase';
+    fixture.detectChanges();
+
+    expect(navigation.attributes['aria-label']).toBe('Navegación del Showcase');
+  });
+
   it('debe renderizar la cantidad correcta de enlaces', () => {
     component.navLinks = MOCK_NAV_LINKS;
     fixture.detectChanges();

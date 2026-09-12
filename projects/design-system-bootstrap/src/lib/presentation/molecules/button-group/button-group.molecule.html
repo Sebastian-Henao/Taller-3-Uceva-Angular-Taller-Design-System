@@ -1,5 +1,12 @@
-<div class="btn-group" role="group" aria-label="Basic example">
+<div class="molecule-actions" role="group" [attr.aria-label]="ariaLabel">
     @for(button of buttonsGroupData; track button){
-        <button [id]="button.idButton" type="button" class="btn" [class]="getClass(button.type)" (click)="onEmit(button.idButton)">{{ button.text }}</button>
+        <div class="action-item" [class.action-item--active]="isSelected(button.idButton)">
+            <dsb-button-atom
+                [idButton]="button.idButton"
+                [type]="button.type"
+                [text]="button.text"
+                (clicker)="onEmit($event)">
+            </dsb-button-atom>
+        </div>
     }
 </div>

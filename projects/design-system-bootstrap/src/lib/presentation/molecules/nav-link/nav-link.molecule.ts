@@ -12,22 +12,23 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
  *
  * Este componente se encarga únicamente de renderizar los enlaces
  * y manejar el estado activo mediante `RouterLinkActive`,
- * delegando la estructura visual al template HTML.
+ * delegando la estructura visual al template y a sus estilos propios.
  *
  * @example
  * ```html
  * <dsb-nav-link-molecule
  *   [navLinks]="[
- *     { label: 'Átomos', route: '/atoms' },
- *     { label: 'Moléculas', route: '/molecules' },
- *     { label: 'Organismos', route: '/organisms' },
+ *     { text: 'Átomos', url: '/atoms' },
+ *     { text: 'Moléculas', url: '/molecules' },
+ *     { text: 'Organismos', url: '/organisms' },
  *   ]"
+ *   ariaLabel="Navegación del Showcase"
  * ></dsb-nav-link-molecule>
  * ```
  *
  * @usageNotes
  * - Diseñado para ser usado dentro de organismos como Navbars o Sidebars.
- * - Compatible con Bootstrap (por ejemplo `nav-link`, `active`).
+ * - Presenta los enlaces como tabs y resalta la ruta activa.
  *
  * @selector dsb-nav-link-molecule
  *
@@ -36,6 +37,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'dsb-nav-link-molecule',
   templateUrl: './nav-link.molecule.html',
+  styleUrl: './nav-link.molecule.scss',
   imports: [RouterLink, RouterLinkActive]
 })
 export class NavLinkMolecule {
@@ -50,10 +52,18 @@ export class NavLinkMolecule {
    * @example
    * ```ts
    * navLinks = [
-   *   { label: 'Home', route: '/' },
-   *   { label: 'Profile', route: '/profile' }
+  *   { text: 'Home', url: '/' },
+  *   { text: 'Profile', url: '/profile' }
    * ];
    * ```
    */
   @Input() navLinks: NavLink[] = [];
+
+  /**
+   * Nombre accesible de la navegación.
+   *
+   * @type {string}
+   * @default 'Navegación principal'
+   */
+  @Input() ariaLabel = 'Navegación principal';
 }
