@@ -1,11 +1,14 @@
 <dsb-container-atom title="Button Group" >
     <dsb-button-group-molecule 
         [buttonsGroupData]="buttonsGroupData" 
+        ariaLabel="Acciones disponibles"
         (clicker)="onClick($event)" >
     </dsb-button-group-molecule>
 </dsb-container-atom>
 
 <dsb-container-atom title="Nav Link" >
-    <dsb-nav-link-molecule [navLinks]="navLinks">
+    <dsb-nav-link-molecule
+        [navLinks]="navLinks"
+        ariaLabel="Navegación del Showcase">
     </dsb-nav-link-molecule>
 </dsb-container-atom>

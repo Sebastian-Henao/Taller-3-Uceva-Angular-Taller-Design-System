@@ -22,6 +22,16 @@ describe('ButtonGroupMolecule', () => {
     expect(component).toBeTruthy();
   });
 
+  it('deberia usar una etiqueta accesible configurable para el grupo', () => {
+    const buttonsGroup = fixture.debugElement.query(By.css('.btn-group'));
+    expect(buttonsGroup.attributes['aria-label']).toBe('Grupo de botones');
+
+    component.ariaLabel = 'Acciones del formulario';
+    fixture.detectChanges();
+
+    expect(buttonsGroup.attributes['aria-label']).toBe('Acciones del formulario');
+  });
+
   it('Deberia agregar el numero de Buttons solicitados', () => {
     component.buttonsGroupData = MOCK_BUTTONS_GROUP_DATA;
     fixture.detectChanges();

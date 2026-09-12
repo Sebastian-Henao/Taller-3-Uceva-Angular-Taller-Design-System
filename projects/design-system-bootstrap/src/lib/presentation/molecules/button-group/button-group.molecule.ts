@@ -30,6 +30,14 @@ export class ButtonGroupMolecule {
   @Input() buttonsGroupData: ButtonGroupData[] = [];
 
   /**
+   * Nombre accesible del grupo de botones.
+   *
+   * @type {string}
+   * @default 'Grupo de botones'
+   */
+  @Input() ariaLabel = 'Grupo de botones';
+
+  /**
    * Evento emitido al hacer click en alguno de los botones del grupo.
    *
    * @emits string Identificador del botón presionado

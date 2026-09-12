@@ -56,4 +56,12 @@ export class NavLinkMolecule {
    * ```
    */
   @Input() navLinks: NavLink[] = [];
+
+  /**
+   * Nombre accesible de la navegación.
+   *
+   * @type {string}
+   * @default 'Navegación principal'
+   */
+  @Input() ariaLabel = 'Navegación principal';
 }
